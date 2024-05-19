@@ -1,6 +1,10 @@
 class Produto:
     def __init__(
-        self, nome: str, codigo: str, preco: float, quantidade: int
+        self, 
+        nome: str, 
+        codigo: str, 
+        preco: float, 
+        quantidade: int
     ) -> None:
         self.nome = nome
         self.codigo = codigo
@@ -23,4 +27,7 @@ class Produto:
         self.quantidade += quantidade
 
     def remover_estoque_do_produto(self, quantidade: int) -> None:
-        self.quantidade -= quantidade
+        if quantidade > self.quantidade:
+            raise ValueError("Quantidade insuficiente em estoque")
+        else:
+            self.quantidade -= quantidade
