@@ -6,28 +6,28 @@ class Produto:
         preco: float, 
         quantidade: int
     ) -> None:
-        self.nome = nome
-        self.codigo = codigo
-        self.preco = preco
-        self.quantidade = quantidade
+        self.__nome = nome
+        self.__codigo = codigo
+        self.__preco = preco
+        self.__quantidade = quantidade
 
     def get_preco(self) -> float:
-        return self.preco
+        return self.__preco
 
     def get_quantidade(self) -> int:
-        return self.quantidade
+        return self.__quantidade
 
     def atualizar_preco_do_produto(self, novo_preco: float) -> None:
         if novo_preco < 0:
             raise ValueError("Preço não pode ser negativo")
         else:
-            self.preco = novo_preco
+            self.__preco = novo_preco
 
     def adicionar_estoque_do_produto(self, quantidade: int) -> None:
-        self.quantidade += quantidade
+        self.__quantidade += quantidade
 
     def remover_estoque_do_produto(self, quantidade: int) -> None:
-        if quantidade > self.quantidade:
+        if quantidade > self.__quantidade:
             raise ValueError("Quantidade insuficiente em estoque")
         else:
-            self.quantidade -= quantidade
+            self.__quantidade -= quantidade
